@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const NewTweet = () => {
@@ -17,6 +17,7 @@ const NewTweet = () => {
         console.log(res.status);
       })
       .catch((err) => console.log(err));
+    setNewTweet({ tweet: "" });
   };
   return (
     <>

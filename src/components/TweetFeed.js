@@ -8,15 +8,17 @@ const TweetFeed = () => {
   const getTweetList = () => {
     axios
       .get("http://localhost:4000/api/tweets")
-      .then((res) => setTweets(res.data))
+      .then((res) => {
+        setTweets(res.data.reverse());
+      })
       .catch((err) => console.log(err));
   };
   useEffect(() => {
     getTweetList();
-  }, []);
+  }, [tweets]);
   const deleteTweet = (tweetId) => {
     tweetServices.deleteTweet(tweetId);
-    getTweetList();
+    // getTweetList();
   };
   return (
     <>
