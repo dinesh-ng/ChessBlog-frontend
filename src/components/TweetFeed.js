@@ -2,7 +2,18 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import tweetService from "./Services";
 import Tweet from "./Tweet";
-
+import NewTweet from "./NewTweet";
+const feedBoxStyle = {
+  backgroundColor: "#cfe4c6",
+  margin: "5% auto",
+  width: "70%",
+  padding: "2%",
+  minHeight: "100vh",
+};
+const tweetFeedStyle = {
+  margin: "2% auto",
+  width: "80%",
+};
 const TweetFeed = () => {
   const tweetServices = new tweetService();
   const [tweets, setTweets] = useState([]);
@@ -23,18 +34,13 @@ const TweetFeed = () => {
   };
   return (
     <>
-      <div>
+      <div style={feedBoxStyle}>
+        <div style={tweetFeedStyle}>
+          <NewTweet />
+        </div>
         {tweets &&
           tweets.map((tweet, idx) => (
-            <div key={idx}>
-              {/* <h5>
-                {tweet.createdBy} @ <span>{tweet.createdAt}</span>
-              </h5>
-              <button onClick={() => deleteTweet(tweet._id)}>
-                Delete Tweet
-              </button>
-
-              <p>{tweet.tweet}</p> */}
+            <div key={idx} style={tweetFeedStyle}>
               <Tweet
                 tweet={tweet.tweet}
                 createdAt={tweet.createdAt}

@@ -1,5 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import { Box, TextField } from "@mui/material";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
 
 const NewTweet = () => {
   const [newtweet, setNewTweet] = useState({
@@ -22,16 +25,35 @@ const NewTweet = () => {
   return (
     <>
       <div>
-        <form onSubmit={handleSubmit}>
-          <label>Type New Tweet..</label>
+        {/* <form onSubmit={handleSubmit}> */}
+        {/* <label>Type New Tweet..</label>
           <input
             type="text"
             onChange={handleChange}
             name="tweet"
             value={newtweet.tweet}
           ></input>
-          <input type="submit" value="submit"></input>
-        </form>
+          <input type="submit" value="submit"></input> */}
+        <Box sx={{}} autoComplete="off">
+          <form onSubmit={handleSubmit}>
+            <TextField
+              id="filled-multiline-static"
+              label="Tweet Something"
+              multiline
+              rows={4}
+              variant="filled"
+              fullWidth
+              onChange={handleChange}
+              name="tweet"
+              value={newtweet.tweet}
+              required
+            ></TextField>
+            <Fab type="submit" size="small" color="secondary" aria-label="add">
+              <AddIcon />
+            </Fab>
+          </form>
+        </Box>
+        {/* </form> */}
       </div>
     </>
   );
