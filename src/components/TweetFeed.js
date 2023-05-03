@@ -4,7 +4,7 @@ import tweetService from "./Services";
 import Tweet from "./Tweet";
 import NewTweet from "./NewTweet";
 const feedBoxStyle = {
-  backgroundColor: "#cfe4c6",
+  backgroundColor: "rgb(162 241 171)",
   margin: "5% auto",
   width: "70%",
   padding: "2%",
